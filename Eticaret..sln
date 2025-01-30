@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eticaret.WebUI", "..\Eticaret\Eticaret.WebUI\Eticaret.WebUI.csproj", "{1481FE8E-FE79-4025-8D6F-0C6C095873A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eticaret.Core", "..\Eticaret\Eticaret.Core\Eticaret.Core.csproj", "{064AB305-9B6F-4A23-92A5-300481D93EAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eticaret.Data", "..\Eticaret\Eticaret.Data\Eticaret.Data.csproj", "{260632FA-7AD5-43E6-8E73-F17ACCE1CB70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eticaret.Service", "..\Eticaret\Eticaret.Service\Eticaret.Service.csproj", "{0FC2CB22-0632-4033-8FAE-32F3AEEEB841}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1481FE8E-FE79-4025-8D6F-0C6C095873A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1481FE8E-FE79-4025-8D6F-0C6C095873A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1481FE8E-FE79-4025-8D6F-0C6C095873A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1481FE8E-FE79-4025-8D6F-0C6C095873A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{064AB305-9B6F-4A23-92A5-300481D93EAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{064AB305-9B6F-4A23-92A5-300481D93EAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{064AB305-9B6F-4A23-92A5-300481D93EAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{064AB305-9B6F-4A23-92A5-300481D93EAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{260632FA-7AD5-43E6-8E73-F17ACCE1CB70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{260632FA-7AD5-43E6-8E73-F17ACCE1CB70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{260632FA-7AD5-43E6-8E73-F17ACCE1CB70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{260632FA-7AD5-43E6-8E73-F17ACCE1CB70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FC2CB22-0632-4033-8FAE-32F3AEEEB841}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FC2CB22-0632-4033-8FAE-32F3AEEEB841}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FC2CB22-0632-4033-8FAE-32F3AEEEB841}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FC2CB22-0632-4033-8FAE-32F3AEEEB841}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
