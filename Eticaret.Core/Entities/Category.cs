@@ -15,7 +15,7 @@
         //özel sıralamalar için
         public int OrderNo { get; set; }
 
-        public DateTime CreateDate { get; set; }
+        public DateTime CreateDate { get; set; } 
 
         public IList<Product>? Products { get; set; }
     }

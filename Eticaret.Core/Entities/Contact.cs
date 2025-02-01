@@ -8,7 +8,7 @@
         public string? Email { get; set; }
         public string? Phone { get; set; }
         public string Message { get; set; }
-        public DateTime CreateDate { get; set; } = DateTime.Now;
+        public DateTime CreateDate { get; set; } 
 
     }
 }

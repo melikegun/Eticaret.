@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.Metrics;
-
-namespace Eticaret.Core.Entities
+﻿namespace Eticaret.Core.Entities
 {
     public class AppUser : IEntity
     {
@@ -13,7 +11,7 @@ namespace Eticaret.Core.Entities
         public string? UserName { get; set; }
         public bool IsActive { get; set; }
         public bool IsAdmin { get; set; }
-        public DateTime CreatDate { get; set; }
+        public DateTime CreateDate { get; set; }
         public Guid? UserGuid { get; set; }
 
         //Kullanıcıya özgü, benzersiz bir kimlik oluşturmak için kullanılır.
