@@ -1,9 +1,8 @@
-﻿@model IEnumerable<AppUser>
+﻿@model IEnumerable<Category>
 
 @{
-    ViewData["Title"] = "Kullanıcılar";
+    ViewData["Title"] = "Kategoriler";
 }
-
 
 <p>
     <a asp-action="Create" class="btn btn-outline-primary">
@@ -14,22 +13,28 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Surname)
+                @Html.DisplayNameFor(model => model.CreateDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+                @Html.DisplayNameFor(model => model.Image)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.IsActive)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IsAdmin)
+                @Html.DisplayNameFor(model => model.IsTopMenu)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CreateDate)
+                @Html.DisplayNameFor(model => model.ParentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderNo)
             </th>
             <th></th>
         </tr>
@@ -39,24 +44,29 @@
         {
             <tr>
                 <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Surname)
+                    @item.CreateDate.ToShortDateString()
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Email)
+                    <img src="/Img/Categories/@item.Image" alt="" height="30" />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.IsActive)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IsAdmin)
+                    @Html.DisplayFor(modelItem => item.IsTopMenu)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CreateDate)
+                    @Html.DisplayFor(modelItem => item.ParentId)
                 </td>
-
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderNo)
+                </td>
                 <td>
                     <a class="btn btn-sm btn-primary" asp-action="Edit"
                        asp-route-id="@item.Id"><i class="fa-solid fa-pen"></i></a>

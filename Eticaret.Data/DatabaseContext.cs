@@ -38,6 +38,10 @@ namespace Eticaret.Data
                 .HasDefaultValueSql("GETDATE()"); // SQL Server'da geçerli tarih
 
             // Diğer entity'ler için benzer işlemler yapılabilir
+            modelBuilder.Entity<Brand>()
+                .Property(p => p.CreateDate)
+                .HasDefaultValueSql("GETDATE()");
+
             modelBuilder.Entity<Product>()
                 .Property(p => p.CreateDate)
                 .HasDefaultValueSql("GETDATE()");

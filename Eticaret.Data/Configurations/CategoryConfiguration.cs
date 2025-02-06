@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Eticaret.Data.Configurations
 {
-    internal class CategoryConfiguration : IEntityConfigoration<Category>
+    internal class CategoryConfiguration : IEntityTypeConfiguration<Category>
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
