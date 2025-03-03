@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Eticaret.Data.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20250206211740_InitialCreate")]
+    [Migration("20250303125014_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
