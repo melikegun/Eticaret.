@@ -21,7 +21,7 @@ namespace Eticaret.Core.Entities
         public bool IsActive { get; set; }
 
         //ana sayfada gösterilsin 
-        [Display(Name = "Anasayfada Göster")]
+        [Display(Name = "Anasayfa")]
         public bool IsHome { get; set; }
 
         //bağlı olduğu üst kategori

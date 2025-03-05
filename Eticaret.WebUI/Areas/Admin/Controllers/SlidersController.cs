@@ -7,22 +7,22 @@ using Microsoft.EntityFrameworkCore;
 namespace Eticaret.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class NewsController : Controller
+    public class SlidersController : Controller
     {
         private readonly DatabaseContext _context;
 
-        public NewsController(DatabaseContext context)
+        public SlidersController(DatabaseContext context)
         {
             _context = context;
         }
 
-        // GET: Admin/News
+        // GET: Admin/Sliders
         public async Task<IActionResult> Index()
         {
-            return View(await _context.News.ToListAsync());
+            return View(await _context.Sliders.ToListAsync());
         }
 
-        // GET: Admin/News/Details/5
+        // GET: Admin/Sliders/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -30,38 +30,38 @@ namespace Eticaret.WebUI.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var news = await _context.News
+            var slider = await _context.Sliders
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (news == null)
+            if (slider == null)
             {
                 return NotFound();
             }
 
-            return View(news);
+            return View(slider);
         }
 
-        // GET: Admin/News/Create
+        // GET: Admin/Sliders/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/News/Create
+        // POST: Admin/Sliders/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(News news, IFormFile? Image)
+        public async Task<IActionResult> Create(Slider slider, IFormFile? Image)
         {
             if (ModelState.IsValid)
             {
-                news.Image = await FileHelper.FileLoaderAsync(Image);
-                _context.Add(news);
+                slider.Image = await FileHelper.FileLoaderAsync(Image, "/Img/Slider/");
+                _context.Add(slider);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(news);
+            return View(slider);
         }
 
-        // GET: Admin/News/Edit/5
+        // GET: Admin/Sliders/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -69,20 +69,20 @@ namespace Eticaret.WebUI.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var news = await _context.News.FindAsync(id);
-            if (news == null)
+            var slider = await _context.Sliders.FindAsync(id);
+            if (slider == null)
             {
                 return NotFound();
             }
-            return View(news);
+            return View(slider);
         }
 
-        // POST: Admin/News/Edit/5
+        // POST: Admin/Sliders/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, News news, IFormFile? Image, bool cbResmiSil = false)
+        public async Task<IActionResult> Edit(int id, Slider slider, IFormFile? Image, bool cbResmiSil = false)
         {
-            if (id != news.Id)
+            if (id != slider.Id)
             {
                 return NotFound();
             }
@@ -92,15 +92,15 @@ namespace Eticaret.WebUI.Areas.Admin.Controllers
                 try
                 {
                     if (cbResmiSil)
-                        news.Image = string.Empty;
+                        slider.Image = string.Empty;
                     if (Image is not null)
-                        news.Image = await FileHelper.FileLoaderAsync(Image);
-                    _context.Update(news);
+                        slider.Image = await FileHelper.FileLoaderAsync(Image, "/Img/Slider/");
+                    _context.Update(slider);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!NewsExists(news.Id))
+                    if (!SliderExists(slider.Id))
                     {
                         return NotFound();
                     }
@@ -111,10 +111,10 @@ namespace Eticaret.WebUI.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(news);
+            return View(slider);
         }
 
-        // GET: Admin/News/Delete/5
+        // GET: Admin/Sliders/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -122,38 +122,38 @@ namespace Eticaret.WebUI.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var news = await _context.News
+            var slider = await _context.Sliders
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (news == null)
+            if (slider == null)
             {
                 return NotFound();
             }
 
-            return View(news);
+            return View(slider);
         }
 
-        // POST: Admin/News/Delete/5
+        // POST: Admin/Sliders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int id, IFormFile? Image)
         {
-            var news = await _context.News.FindAsync(id);
-            if (news != null)
+            var slider = await _context.Sliders.FindAsync(id);
+            if (slider != null)
             {
-                if(!string.IsNullOrEmpty(news.Image))
+                if (!string.IsNullOrEmpty(slider.Image))
                 {
-                    FileHelper.FileRemover(news.Image, "/Img/");
+                    FileHelper.FileRemover(slider.Image, "/Img/Slider/");
                 }
-                _context.News.Remove(news);
+                _context.Sliders.Remove(slider);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool NewsExists(int id)
+        private bool SliderExists(int id)
         {
-            return _context.News.Any(e => e.Id == id);
+            return _context.Sliders.Any(e => e.Id == id);
         }
     }
 }

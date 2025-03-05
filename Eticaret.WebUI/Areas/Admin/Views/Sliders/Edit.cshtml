@@ -1,7 +1,7 @@
-﻿@model News
+﻿@model Slider
 
 @{
-    ViewData["Title"] = "Duyuru Düzünle";
+    ViewData["Title"] = "Slide Düzenle";
 }
 
 <hr />
@@ -10,12 +10,11 @@
         <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
-            <input type="hidden" asp-for="CreateDate" />
             <input type="hidden" asp-for="Image" />
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
@@ -26,20 +25,20 @@
                 <label asp-for="Image" class="control-label"></label>
                 <input asp-for="Image" class="form-control" type="file" />
                 <span asp-validation-for="Image" class="text-danger"></span>
-                @if(Model.Image != null&& !string.IsNullOrWhiteSpace(Model.Image))
+                @if(Model.Image != null && !string.IsNullOrWhiteSpace(Model.Image))
                 {
-                    <img src="/Img/@Model.Image" height="75" />
+                    <img src="/Img/Slider/@Model.Image" height="75" />
                     <label class="form-check-label">
                         @Html.CheckBox("cbResmiSil") Resmi Sil
                     </label>
                 }
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
-                </label>
-            </div>
             <div class="form-group">
+                <label asp-for="Link" class="control-label"></label>
+                <input asp-for="Link" class="form-control" />
+                <span asp-validation-for="Link" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
                 <input type="submit" value="Kaydet" class="btn btn-primary" />
             </div>
         </form>
