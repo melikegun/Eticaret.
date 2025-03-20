@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Eticaret.Core.Entities;
 using Eticaret.Data;
 using Eticaret.WebUI.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -32,6 +33,31 @@ namespace Eticaret.WebUI.Controllers
 
         public IActionResult ContactUs()
         {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult ContactUs(Contact contact)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Contacts.Add(contact);
+                    var sonuc = _context.SaveChanges();
+                    if (sonuc > 0)
+                    {
+                        TempData["Message"] = @"<div class=""alert alert-success alert-dismissible fade show"" role=""alert"">
+                        <strong>Mesajýnýz Gönderilmiþtir!</strong>
+                        <button type=""button"" class=""btn-close"" data-bs-dismiss=""alert"" aria-label=""Close""></button>
+                        </div>";
+                        return RedirectToAction("ContactUs");
+                    }
+                }
+                catch (Exception)
+                {
+                    ModelState.AddModelError("", "Bir hata oluþtu. Lütfen tekrar deneyin.");
+                }
+            }
             return View();
         }
 

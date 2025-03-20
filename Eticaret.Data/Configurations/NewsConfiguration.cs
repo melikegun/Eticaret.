@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Eticaret.Data.Configurations
 {
-    internal class NewsConfiguration : IEntityTypeConfiguraiton<News>
+    internal class NewsConfiguration : IEntityTypeConfiguration<News>
     {
         public void Configure(EntityTypeBuilder<News> builder)
         {
@@ -12,8 +12,7 @@ namespace Eticaret.Data.Configurations
                 .IsRequired()
                 .HasMaxLength(250);
 
-            builder.Property(x => x.Description)
-                .HasMaxLength(750);
+            builder.Property(x => x.Description);
 
             builder.Property(x => x.Image)
                 .HasMaxLength(100);
